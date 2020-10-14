@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+
+            html{
+                position: relative;
+                min-height: 100%;
+            }
+            body{
+                margin-bottom: 60px;
+                background-color: #ECF0F1;
+            }
+
+            .footer{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50px;
+                background-color: black;
+            }
+
+
+
+            .fa {
+                padding: 3px;
+                font-size: 30px;
+                width: 35px;
+                text-align: center;
+                text-decoration: none;
+                margin: 5px 2px;
+            }
+
+
+            .fa-facebook {
+                background: #3B5998;
+                color: white;
+            }
+
+            .fa-twitter {
+                background: #55ACEE;
+                color: white;
+            }
+
+            #form-area {
+                margin: 12px;
+                padding: 60px;
+                border-radius: 25px;
+                border: 2px solid #0099ff;
+                width: 48%;
+                background-color: #f2f5f3;
+
+
+            }
+
+            #regDiv {
+                border: 1px outset red;
+                background-color: ;    
+                text-align: center;
+                width: 100%;
+
+            }
+
+            .qa {
+                text-align: justify;
+                text-justify: inter-word;
+            }
+
+            .question {
+                margin-top: 12px;
+            }
+
+            h5 {
+                font-size: 16px;
+            }
+
+            li {
+                font-size: 14px;
+            }
+
+        </style>
+
+
+    </head>
+
+    <script>
+        function myFunction() {
+            var nameField = document.forms["contact-us"]["name"].value;
+            var contactField = document.forms["contact-us"]["contact-number"].value;
+            var emailField = document.forms["contact-us"]["email"].value;
+            var messageField = document.forms["contact-us"]["message"].value;
+            if( nameField == "" || contactField == "" || emailField == "" || messageField == "" ) {
+ 
+            } else {
+                alert("Send Details");
+            }
+            
+            
+        }
+    </script>
+    
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+
+            <img style="width: 129px; height: 55px;"src="unnamed.png">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarText">
+
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item active">
+                        <a style="color: white;" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: white;"class="nav-link" href="#">Edit My AD</a>
+                    </li>
+
+                </ul>
+
+                <span class="navbar-text">
+
+                    <button style="width: 290px;"type="button" class="btn btn-outline-primary">Post a Free Ad</button>
+                    <button style="margin-left :25px;"style="margin-left :55px;" type="button" class="btn btn-outline-primary">Register</button>
+                    <button style="margin-left :25px;"type="button" class="btn btn-outline-primary">Login</button>
+
+                </span>
+
+            </div>
+
+        </nav>
+
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div id="form-area">
+                    <form name="contact-us">
+
+                        <h4>Contact Us</h4>
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Name" name="name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Contact Number</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputEmail3" placeholder="Contact Number" name="contact-number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Message</label >
+                            <div class="col-sm-10">
+                                <textarea  type="text" class="form-control" id="inputEmail3" placeholder="Message" name="message" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary" onclick="myFunction()">Send</button>
+                            </div>
+                        </div>
+
+                        <div id="regDiv">
+                            <h5>If you are not a registered member of Riyasewana.com </h5>
+                            <h5>please register FREE.</h5>
+                            <p><button type="button" class="btn btn-danger">Register Here</button></p>
+                        </div>
+
+
+                    </form>
+                </div>
+
+
+                <div id="form-area">
+
+                    <div class="qa">
+                        <h4>Frequently Asked Questions</h4></br>
+                        <h5>1) Is Riyasewana.com free?</h5>
+                        <li>Riyasewana.com is a Free service.</li>
+                        <h5 class="question">2) Why are my Ads pending?</h5>
+                        <li>If you are putting an Ad for the first time you have to send a sms with your name to confirm the phone number used in the Ad. (Please check your account area for more details.)</li>
+                        <h5 class="question">3) Are there any hidden fees/charges when sending SMS?</h5>
+                        <li>NO, It will only cost you normal mobile SMS charges.</li>
+                        <h5 class="question">4) I sent confirmation sms with my name. Why is my Ad still pending?</h5>
+                        <li>Approving Ads is a manual process. Usually ads are approved within 30mins but it can be delayed up to 2 hours depending on the Ad load.</li>           
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+</div>
+
+<footer class="footer mt-auto py-3">
+
+    <div style="background-color: black;" class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <h4 style="color: white;">Connect With Us</h4> 
+                <a href="#" class="fa fa-twitter"></a>
+                <a style="margin-left :28px;" href="#" class="fa fa-facebook"></a>
+                <p style="color: white;">Copyright © Riyasewana Lanka (Pvt) Ltd.</p>                                       
+            </div>
+
+            <div class="col-sm-2">       
+                <h4 style="color: white;text-decoration: underline;">Help & Support</h4>
+                <a href="#">Contac Us </a><br>
+                <a href="#">contribute</a>   
+            </div>
+
+            <div class="col-sm-2">                                
+                <h4 style="color: white;text-decoration: underline;">Social</h4>
+                <a href="#">FaceBook</a><br>
+                <a href="#">Twitter</a>                                           
+            </div>
+
+            <div class="col-sm-2">
+                <h4 style="color: white;text-decoration: underline;">About Us</h4> 
+                <a href="#">About Us </a><br>
+                <a href="#">Terms & Conditions </a><br>
+                <a href="#">Privacy Policy </a><br>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+
+
+
+
+</body>
+</html>

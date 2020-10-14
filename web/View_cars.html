@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <style>
+
+            html{
+                position: relative;
+                min-height: 100%;
+            }
+            body{
+                margin-bottom: 60px;
+                background-color: #ECF0F1;
+            }
+
+            .footer{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50px;
+                background-color: black;
+            }
+
+
+
+            .fa {
+                padding: 3px;
+                font-size: 30px;
+                width: 35px;
+                text-align: center;
+                text-decoration: none;
+                margin: 5px 2px;
+            }
+
+
+            .fa-facebook {
+                background: #3B5998;
+                color: white;
+            }
+
+            .fa-twitter {
+                background: #55ACEE;
+                color: white;
+            }
+
+            #form-area {
+                margin: 50px;
+                padding: 60px;
+                border-radius: 25px;
+                border: 2px solid #0099ff;
+                width: 80%;
+                background-color: #f2f5f3;
+
+
+            }
+
+            /*slider*/
+
+            body {
+                font-family: Arial;
+                margin: 0;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            img {
+                vertical-align: middle;
+            }
+
+            /* Position the image container (needed to position the left and right arrows) */
+            .container {
+                position: relative;
+            }
+
+            /* Hide the images by default */
+            .mySlides {
+                display: none;
+            }
+
+            /* Add a pointer when hovering over the thumbnail images */
+            .cursor {
+                cursor: pointer;
+            }
+
+
+            /* Position the "next button" to the right */
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover,
+            .next:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            /* Number text (1/3 etc) */
+            .numbertext {
+                color: #f2f2f2;
+                font-size: 12px;
+                padding: 8px 12px;
+                position: absolute;
+                top: 0;
+            }
+
+            /* Container for image text */
+            .caption-container {
+                text-align: center;
+                background-color: #222;
+                padding: 2px 16px;
+                color: white;
+                width: 100%
+            }
+
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            /* Six columns side by side */
+            .column {
+                float: left;
+                width: 15.80%;
+            }
+
+
+
+            /* Add a transparency effect for thumnbail images */
+            .demo {
+                opacity: 0.6;
+            }
+
+            .active,
+            .demo:hover {
+                opacity: 1;
+            }
+
+            #form {  
+                width: 70%;
+                background-color: #f2f5f3;
+
+
+            }
+           
+
+
+
+            </style>
+
+
+        </head>
+
+
+        <body>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+
+                <img style="width: 129px; height: 55px;"src="images/unnamed.png">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarText">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item active">
+                            <a style="color: white;" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white;"class="nav-link" href="#">Edit My AD</a>
+                        </li>
+
+                    </ul>
+
+                    <span class="navbar-text">
+
+                        <button style="width: 290px;"type="button" class="btn btn-outline-primary">Post a Free Ad</button>
+                        <button style="margin-left :25px;"style="margin-left :55px;" type="button" class="btn btn-outline-primary">Register</button>
+                        <button style="margin-left :25px;"type="button" class="btn btn-outline-primary">Login</button>
+
+                    </span>
+
+                </div>
+
+            </nav>
+
+            <div class="row">
+                <div id="form">
+                    <div class="col-sm-10">
+
+                        <h2 style="text-align:center"></h2>
+
+                            <div class="container">
+
+
+
+                                </br>
+                                <div class="mySlides">
+                                    <div class="numbertext">1 / 4</div>
+                                    <img src="images/bmw-1.jpg" style="width:520px; height: 70%;">
+                                </div>
+
+                                <div class="mySlides">
+                                    <div class="numbertext">2 / 4</div>
+                                    <img src="images/bmw-2.jpg" style="width:60%">
+                                </div>
+
+                                <div class="mySlides">
+                                    <div class="numbertext">3 / 4</div>
+                                    <img src="images/bmw-3 - Copy.jpg" style="width:60%">
+                                </div>
+
+                                <div class="mySlides">
+                                    <div class="numbertext">4 / 4</div>
+                                    <img src="images/bmw-4.jpg" style="width:60%">
+                                </div>
+
+
+
+                                <a class="prev" onclick="plusSlides(-1)"></a>
+                                <a class="next" onclick="plusSlides(1)"></a>
+
+                                <div class="caption-container">
+                                    <p id="caption"></p>
+                                </div>
+
+                                <div class="row" style="margin-left: 0">
+                                    <div class="column">
+                                        <img class="demo cursor" src="images/bmw-1.jpg" style="width:100%" onclick="currentSlide(1)" alt="">
+                                    </div>
+                                    <div class="column">
+                                        <img class="demo cursor" src="images/bmw-2.jpg" style="width:100%" onclick="currentSlide(2)" alt="">
+                                    </div>
+                                    <div class="column">
+                                        <img class="demo cursor" src="images/bmw-3 - Copy.jpg" style="width:100%" onclick="currentSlide(3)" alt="">
+                                    </div>
+                                    <div class="column">
+                                        <img class="demo cursor" src="images/bmw-4.jpg" style="width:100%" onclick="currentSlide(4)" alt="">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="form1">
+                        <div class="col-sm-2">
+                            <div class="container">
+
+
+                                <table class="table">
+
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">First</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>Mark</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">2</th>
+                                            <td>Jacob</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">3</th>
+                                            <td>Larry</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+
+
+                <script>
+                    var slideIndex = 1;
+                    showSlides(slideIndex);
+
+                    function plusSlides(n) {
+                        showSlides(slideIndex += n);
+                    }
+
+                    function currentSlide(n) {
+                        showSlides(slideIndex = n);
+                    }
+
+                    function showSlides(n) {
+                        var i;
+                        var slides = document.getElementsByClassName("mySlides");
+                        var dots = document.getElementsByClassName("demo");
+                        var captionText = document.getElementById("caption");
+                        if (n > slides.length) {
+                            slideIndex = 1
+                        }
+                        if (n < 1) {
+                            slideIndex = slides.length
+                        }
+                        for (i = 0; i < slides.length; i++) {
+                            slides[i].style.display = "none";
+                        }
+                        for (i = 0; i < dots.length; i++) {
+                            dots[i].className = dots[i].className.replace(" active", "");
+                        }
+                        slides[slideIndex - 1].style.display = "block";
+                        dots[slideIndex - 1].className += " active";
+                        captionText.innerHTML = dots[slideIndex - 1].alt;
+                    }
+                </script>
+
+
+
+
+            </div>
+
+            <footer class="footer mt-auto py-3">
+
+                <div style="background-color: black;" class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <h4 style="color: white;">Connect With Us</h4> 
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a style="margin-left :28px;" href="#" class="fa fa-facebook"></a>
+                        <p style="color: white;">Copyright © Riyasewana Lanka (Pvt) Ltd.</p>                                       
+                    </div>
+
+                    <div class="col-sm-2">       
+                        <h4 style="color: white;text-decoration: underline;">Help & Support</h4>
+                        <a href="#">Contac Us </a><br>
+                        <a href="#">contribute</a>   
+                    </div>
+
+                    <div class="col-sm-2">                                
+                        <h4 style="color: white;text-decoration: underline;">Social</h4>
+                        <a href="#">FaceBook</a><br>
+                        <a href="#">Twitter</a>                                           
+                    </div>
+
+                    <div class="col-sm-2">
+                        <h4 style="color: white;text-decoration: underline;">About Us</h4> 
+                        <a href="#">About Us </a><br>
+                        <a href="#">Terms & Conditions </a><br>
+                        <a href="#">Privacy Policy </a><br>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </footer>
+
+
+
+
+
+
+
+    </body>
+</html>
