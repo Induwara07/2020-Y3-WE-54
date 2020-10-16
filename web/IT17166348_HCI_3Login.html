@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <link rel="stylesheet" href="css/LoginCss.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+        
+        
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
+<script defer src="Js/loginJs.js"></script>
+
+<style>
+    
+#mypet-select {
+    font-size: 1.1rem;
+    padding: 2px 5px;
+    color: #ffffff;
+   
+    
+}    
+
+::placeholder {
+  color: black;
+}
+
+
+
+
+
+
+
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 90px;
+  border: 2px solid #888;
+  width: 720px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: left;
+  font-size: 48px;
+  font-weight: bold;
+  padding-left:25px;
+  
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ .login_form #inser_mass{
+                margin-top: 5px;
+                width: 345px;
+                font-size: 18px;
+                color: #005cbf;
+                background: rgba(255,0,0,0.1);
+                text-align: center;
+                padding: 5px 8px;
+                border-radius: 3px;
+                border: 1px solid #EF9A9A;
+                display: none;
+            }
+            
+ 
+
+
+
+
+</style>
+
+</head>
+    <body>
+
+    <nav style="background-color:#273746;" class="navbar navbar-expand-lg navbar-light">
+
+  
+        <img style="width: 129px; height: 55px;"src="images/Z-unnamed.png">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+  
+  <div class="collapse navbar-collapse" id="navbarText">
+    
+    <ul class="navbar-nav mr-auto">
+       
+        <li class="nav-item active">
+            <a style="margin-left :25px;color: white;font-size:25px;" class="nav-link" href="IT17166348_HCI_1HomePage.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+   
+
+        
+       
+        <li class="nav-item">
+            <a style="margin-left :25px;font-size:25px;color: white;"class="nav-link" href="#">Edit My AD</a>
+        </li>  
+
+        
+        
+        
+<select style="margin-left :25px;background-color:#273746;border: none;font-size:25px;" name="pets" id="mypet-select">
+    <option  value="">Vehicles</option>
+    <option style="background-color: white;color: black;font-size: 25px;" value="dog">Dog</option>
+    <option style="background-color: white;color: black;font-size: 25px;" value="cat">Cat</option>
+    <option style="background-color: white;color: black;font-size: 25px;" value="hamster">Hamster</option>
+    <option style="background-color: white;color: black;font-size: 25px;" value="parrot">Parrot</option>
+    <option style="background-color: white;color: black;font-size: 25px;" value="spider">Spider</option>
+    <option style="background-color: white;color: black;font-size: 25px;" value="goldfish">Goldfish</option>
+</select>
+
+        
+       
+    
+    </ul>
+    
+      <span class="navbar-text">
+        
+          <button style="width: 290px;"type="button" class="btn btn-outline-primary">Post a Free Ad</button>
+          <button style="margin-left :25px;"style="margin-left :55px;" type="button" class="btn btn-outline-primary" onclick="window.location.href='IT17166348_HCI_2RegistrationPage.html';">Register</button>
+          <!--<button style="margin-left :25px;"type="button" class="btn btn-outline-primary" onclick="window.location.href='Login.html';">Login</button> -->
+     
+    </span>
+ 
+  </div>
+
+</nav>
+     
+   
+        <img style="height: 160px;width: 1536px;"src="images/Z-suv.jpg">
+      
+      
+        <div class="wrapper">
+            
+            <h1 style="font-family: inherit;margin-top:-50px;font-size: 45px;">Sign in</h1>
+            <br><br>
+            
+            
+            
+            
+            
+            
+            <form action="IT17166348_HCI_4UserProfile.html">
+       
+                <input type="text" placeholder="Username" name="email">
+                <input type="password" placeholder="Password">
+                
+               
+                
+                <input type="submit" value="Login" class="btn btn-primary">
+           
+           
+
+        </form>
+        
+              <!--    
+            <form>
+                <input type="text" placeholder="Username" name="username">
+                <input type="password" placeholder="Password">
+                
+                
+                <input type="submit" value="Login" class="btn btn-primary">
+        
+            </form>
+       
+            -->
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+      
+            <div class="bottom-text">
+                
+                <input type="checkbox" name="remember" checked="checked"> Remember me
+                <a href="#" id="myBtn">Forgot Password</a>
+
+                
+                
+            </div>
+            
+            <div class="socials">
+                
+                <a href="https://www.facebook.com/">f<i class="fa fa-facebook"></i></a>                
+                
+                <a href="https://twitter.com/"><i class="fa fa-twitter">t</i></a>
+                
+            </div>
+            <br><br><br><br>
+            <center><p style="color: tomato;">Copyright © Riyasewana Lanka(Pvt) Ltd</p></center>
+            
+        </div>
+        
+        <div id="overlay-area"></div>
+        
+        
+   <!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+      <span style="margin-left :470px;" class="close"></span>
+      <center>
+          <br><br>
+          <b><h1 style="margin-top:-130px;">Reset Password</h1></b>
+     
+      <hr style="margin-top:-5px;">
+      <p style="margin-top:-10px;">Please enter the email address that you used in the registration.</p>
+    
+      <!--
+      <form id="form" action="/" method="get">
+        
+        
+               
+      
+                
+                
+                <input style="height:45px;width: 375px;font-size:25px;"type="email" id="email" name="email" placeholder="Email"><br><br>
+                <div style="color: red;"id="error"></div>
+                
+                
+   
+        
+        <button style="height: 45px;width: 290px;font-size: 25px;"type="submit" class="btn btn-primary">Send</button>
+</form> 
+      
+      -->
+       </center>
+   <form class="login_form" method="post" name="form" onsubmit="return myvalidated()">
+       
+       
+       <table>
+           <tr>
+                <div style="display:none;margin-left:87px;color:red;" id="email_error">Plz Enter Email</div>
+           </tr>
+           <tr>
+              
+               <td><input style="height:39px;width: 325px;font-size:20px;margin-left:84px;" type="text" name="email" id="name" placeholder="Email"></td>
+               <td><button style="height: 35px;width:110px;font-size: 17px;margin-left:23px;" type="submit" class="btn btn-primary">Send</button></td>
+        </tr>
+           <tr>
+               <td><div style="margin-left:84px;font-size:15px;" id="inser_mass">Password and Username send to your email address.</div></td>
+           </tr>
+           
+           
+           
+       </table>
+ 
+        
+      
+        </form>
+        
+      
+
+    
+
+
+  </div>
+
+</div>
+            
+   
+        
+ <script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+        
+    </body>
+</html>
+
+
+
