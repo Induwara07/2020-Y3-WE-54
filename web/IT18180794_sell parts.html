@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://www.expertphp.in/js/jquery.form.js"></script>
+
+        <style>
+
+            html{
+                position: relative;
+                min-height: 100%;
+            }
+            body{
+                margin-bottom: 60px;
+                background-color:#eef0ee; 
+            }
+
+            .footer{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50px;
+                background-color: black;
+            }
+
+
+
+            .fa {
+                padding: 3px;
+                font-size: 30px;
+                width: 35px;
+                text-align: center;
+                text-decoration: none;
+                margin: 5px 2px;
+            }
+
+
+            .fa-facebook {
+                background: #3B5998;
+                color: white;
+            }
+
+            .fa-twitter {
+                background: #55ACEE;
+                color: white;
+            }
+            .intext
+            {
+                width:250px;
+                height:27px;
+                border:2px solid #a6a6a6;
+                border-radius:3px;
+                font-size:14px;
+                padding:0px 5px;
+            }
+            .intext:focus
+            {
+                border:2px solid #3db2d0;
+            }
+
+            .btnintxt{
+                width:256px;
+                height:34px;
+                background-color:#e67e22;
+                border-radius:3px;
+                color:#fff;
+                font-weight:bold;
+                border:2px solid #e67e22;
+                -webkit-appearance:button;
+            }
+            .btnintxt:hover{
+                opacity:0.85;
+                cursor:pointer;
+            }
+            .gifcss{
+                vertical-align:middle;
+                display:none;
+                padding-top:5px;
+            }
+            div.a {
+
+                background-color:#e4e8e5;
+                width: 740px;
+                border: 5px solid lightskyblue;
+                padding: 150px;
+                margin: 100px;
+                border-radius:25px;
+
+
+            }
+
+
+
+            user agent stylesheet
+            table {
+                border-collapse: separate;
+                border-spacing: 2px;
+            }
+            body {
+                line-height: 1;
+                color: #636b75;
+                font: 12px open sans,Arial,sans-serif;
+            }
+            span.red{
+                color:red;
+            }
+            button.b{
+
+                background-color:#55ACEE;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                margin: 4px 2px;
+                cursor: pointer;
+
+                width:250px;
+                height:50px;
+
+
+            }
+            div.frm{
+                padding: 5px 5px 12px 15px;
+                vertical-align: middle;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </style>
+            <script>
+                function preview_images()
+                {
+                    var total_file = document.getElementById("images").files.length;
+                    for (var i = 0; i < total_file; i++)
+                    {
+                        $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='" + URL.createObjectURL(event.target.files[i]) + "'></div>");
+                    }
+                }
+                $('#add_more').click(function () {
+                    "use strict";
+                    $(this).before($("<div/>", {
+                        id: 'filediv'
+                    }).fadeIn('slow').append(
+                            $("<input/>", {
+                                name: 'file[]',
+                                type: 'file',
+                                id: 'file',
+                                multiple: 'multiple',
+                                accept: 'image/*'
+                            })
+                            ));
+                });
+
+                $('#upload').click(function (e) {
+                    "use strict";
+                    e.preventDefault();
+
+                    if (window.filesToUpload.length === 0 || typeof window.filesToUpload === "undefined") {
+                        alert("No files are selected.");
+                        return false;
+                    }
+
+                    // Now, upload the files below...
+                    // https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications#Handling_the_upload_process_for_a_file.2C_asynchronously
+                });
+
+                deletePreview = function (ele, i) {
+                    "use strict";
+                    try {
+                        $(ele).parent().remove();
+                        window.filesToUpload.splice(i, 1);
+                    } catch (e) {
+                        console.log(e.message);
+                    }
+                }
+
+                $("#file").on('change', function () {
+                    "use strict";
+
+                    // create an empty array for the files to reside.
+                    window.filesToUpload = [];
+
+                    if (this.files.length >= 1) {
+                        $("[id^=previewImg]").remove();
+                        $.each(this.files, function (i, img) {
+                            var reader = new FileReader(),
+                                    newElement = $("<div id='previewImg" + i + "' class='previewBox'><img /></div>"),
+                                    deleteBtn = $("<span class='delete' onClick='deletePreview(this, " + i + ")'>X</span>").prependTo(newElement),
+                                    preview = newElement.find("img");
+
+                            reader.onloadend = function () {
+                                preview.attr("src", reader.result);
+                                preview.attr("alt", img.name);
+                            };
+
+                            try {
+                                window.filesToUpload.push(document.getElementById("file").files[i]);
+                            } catch (e) {
+                                console.log(e.message);
+                            }
+
+                            if (img) {
+                                reader.readAsDataURL(img);
+                            } else {
+                                preview.src = "";
+                            }
+
+                            newElement.appendTo("#filediv");
+                        });
+                    }
+                });
+            </script>
+
+
+        </head>
+        <body>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+
+                <img style="width: 129px; height: 55px;"src="images/logo1.jpg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarText">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item active">
+                            <a style="color: white;" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white;"class="nav-link" href="#">Edit My AD</a>
+                        </li>
+
+                    </ul>
+
+                    <span class="navbar-text">
+
+                        <button style="width: 290px;"type="button" class="btn btn-outline-primary">Post a Free Ad</button>
+                        <button style="margin-left :25px;"style="margin-left :55px;" type="button" class="btn btn-outline-primary">Register</button>
+                        <button style="margin-left :25px;"type="button" class="btn btn-outline-primary">Login</button>
+
+                    </span>
+
+                </div>
+
+            </nav>
+
+
+
+            <div class="space-2"></div>
+
+            <section class="user-xcd-adding">
+
+                <div class="container bg_w">
+                    <div class="col-md-12">
+
+
+
+                        <div class="h-100 d-inline-block" style=" width: 70% ;background-color:white;margin-left: 15% ;border:5px solid #55ACEE">
+                                <h2 style="margin-left:3%;color:black"><b>Add Your Part / Accessories </b></h2>
+                                <div style="margin-left:3%;font-size:11px;padding:5px 0px;">Items marked with <span class="red">*</span> are required. </div>
+                            <br />
+                            <h4><span style="font-size:13px;font-weight:bold;color:#1d5c84"><p style=" margin-left:3%">Add vehicles that are already in Sri Lanka. Japanese auction Ads will be removed.</span></h4>
+                                <div class="col-md-12 single-xcd-form-div">
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-12">
+                                            <div class="row">
+
+
+                                                <div class="col-md-6">
+
+                                                    <h3>Contact Info</h3>
+                                                </div>
+                                                <div class="col-md-6"> 
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-12">
+                                            <div class="row">
+
+
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <lable><strong>Name<span class="red">*</span></strong></lable><br>
+                                                        <input type="text" style="width:264px;height:31px;" class="form-control" name="fname" id="fname" value="" required />
+                                                </div>
+                                            </div> 
+                                            <div class="col-md-6">
+                                                <lable><strong>Phone number<span class="red">*</span></strong></lable><br>
+                                                <input maxlength="14" style="width:264px;height:31px;" size="14" type="number" class="form-control" name="phn" id="phn" value="" required />
+                                                <br>
+                                                <span style="font-size:11px;"> &nbsp;(10 numbers) Only Mobile Phone numbers</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+
+                                                <lable><strong>City<span class="red">*</span></strong></lable><br>
+
+                                                <select name="city" id="city" class="form-control" style="width:264px;height:31px;" required>
+                                                    <option value="Ambalangoda">Ambalangoda</option><option value="Ampara">Ampara</option><option selected="selected" value="Anuradapura">Anuradapura</option><option value="Avissawella">Avissawella</option><option value="Bandaragama">Bandaragama</option><option value="Badulla">Badulla</option><option value="Balangoda">Balangoda</option><option value="Bandarawela">Bandarawela</option><option value="Battaramulla">Battaramulla</option><option value="Batticaloa">Batticaloa</option><option value="Beruwala">Beruwala</option><option value="Boralesgamuwa">Boralesgamuwa</option><option value="Chavakacheri">Chavakacheri</option><option value="Chilaw">Chilaw</option><option value="Colombo">Colombo</option><option value="Daluguma">Daluguma</option><option value="Dambulla">Dambulla</option><option value="Dehiwala-Mount-Lavinia">Dehiwala-Mount-Lavinia</option><option value="Divulapitiya">Divulapitiya</option><option value="Dompe">Dompe</option><option value="Eheliyagoda">Eheliyagoda</option><option value="Embilipitiya">Embilipitiya</option><option value="Eravur">Eravur</option><option value="Galle">Galle</option><option value="Gampaha">Gampaha</option><option value="Gampola">Gampola</option><option value="Hambantota">Hambantota</option><option value="Haputale">Haputale</option><option value="Harispattuwa">Harispattuwa</option><option value="Hatton">Hatton</option><option value="Hendala">Hendala</option><option value="Homagama">Homagama</option><option value="Horana">Horana</option><option value="Ja-Ela">Ja-Ela</option><option value="Jaffna">Jaffna</option><option value="Kadawatha">Kadawatha</option><option value="Kadugannawa">Kadugannawa</option><option value="Kaduwela">Kaduwela</option><option value="Kalawana">Kalawana</option><option value="Kalmunai">Kalmunai</option><option value="Kalutara">Kalutara</option><option value="Kandana">Kandana</option><option value="Kandy">Kandy</option><option value="Kattankudy">Kattankudy</option><option value="Katunayake">Katunayake</option><option value="Kegalle">Kegalle</option><option value="Kelaniya">Kelaniya</option><option value="Kesbewa">Kesbewa</option><option value="Keselwatta">Keselwatta</option><option value="Kilinochchi">Kilinochchi</option><option value="Kiribathgoda">Kiribathgoda</option><option value="Kolonnawa">Kolonnawa</option><option value="Kotikawatta">Kotikawatta</option><option value="Kotte">Kotte</option><option value="Kottawa">Kottawa</option><option value="Kuliyapitiya">Kuliyapitiya</option><option value="Kurunegala">Kurunegala</option><option value="Maharagama">Maharagama</option><option value="Mahiyanganaya">Mahiyanganaya</option><option value="Malabe">Malabe</option><option value="Mannar">Mannar</option><option value="Matale">Matale</option><option value="Matara">Matara</option><option value="Matugama">Matugama</option><option value="Mawanella">Mawanella</option><option value="Minuwangoda">Minuwangoda</option><option value="Mirigama">Mirigama</option><option value="Moneragala">Moneragala</option><option value="Moratuwa">Moratuwa</option><option value="Mullaitivu">Mullaitivu</option><option value="Mulleriyawa">Mulleriyawa</option><option value="Nawalapitiya">Nawalapitiya</option><option value="Negombo">Negombo</option><option value="Nittambuwa">Nittambuwa</option><option value="Nuwara-Eliya">Nuwara-Eliya</option><option value="Nugegoda">Nugegoda</option><option value="Padukka">Padukka</option><option value="Panadura">Panadura</option><option value="Pannipitiya">Pannipitiya</option><option value="Peliyagoda">Peliyagoda</option><option value="Piliyandala">Piliyandala</option><option value="Polgahawela">Polgahawela</option><option value="Polonnaruwa">Polonnaruwa</option><option value="Puttalam">Puttalam</option><option value="Ragama">Ragama</option><option value="Ratnapura">Ratnapura</option><option value="Seethawakapura">Seethawakapura</option><option value="Sigiriya">Sigiriya</option><option value="Talawakele">Talawakele</option><option value="Tangalle">Tangalle</option><option value="Trincomalee">Trincomalee</option><option value="Valvettithurai">Valvettithurai</option><option value="Vavuniya">Vavuniya</option><option value="Wattala">Wattala</option><option value="Wattegama">Wattegama</option><option value="Warakapola">Warakapola</option><option value="Weligama">Weligama</option><option value="Welimada">Welimada</option><option value="Welisara">Welisara</option></select>
+
+                                            </div>
+                                            <div class="col-md-6">   
+                                            </div>
+
+                                        </div>
+                                    </div>&nbsp
+
+
+
+
+
+                                    <div class="col-md-12">
+                                        <div class="row">
+
+
+                                            <div class="col-md-6">
+
+
+
+                                                <h3>Vehicle Info</h3>
+                                            </div>
+                                            <div class="col-md-6"> 
+                                            </div>
+                                        </div>&nbsp
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <lable><strong>Part / Accessories Info<span class="red">*</span></strong></lable>
+
+                                        <select name="vcat" id="vcat" class="form-control" style="width:264px;height:31px;" required>
+                                            <option value="">Select Condition</option>
+                                            <option value="Brand New">Brand New</option><option value="Used">Used</option></select>
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <lable><strong>Part Used In<span class="red">*</span></strong></lable><br>
+                                        <select name="vtype" id="vtype" class="form-control" style="width:264px;height:31px;" required>
+                                            <option value="All">All</option>
+                                            <option value="Car">Car</option><option value="Van">Van</option><option value="SUV">SUV</option><option value="Crew Cab">Crew Cab</option><option value="Wagon">Wagon</option><option value="Pickup">Pickup</option><option value="Bus">Bus</option><option value="Lorry">Lorry</option><option value="Three Wheel">Three Wheel</option><option value="Tractor">Tractor</option><option value="Heavy-Duty">Heavy-Duty</option><option value="Other">Other</option><option value="Motorcycle">Motorcycle</option>
+                                        </select>
+                                    </div>
+
+                                </div>&nbsp
+                            </div>
+                            <div class="col-md-12 w-10 p-3">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <lable><strong>Part Name and Brand<span class="red">*</span></strong></lable>
+                                        <input style="width:264px;" type="text" class="form-control" name="model" id="model" value="" required /><br /><span style="font-size:11px;">(Put both brand/Make Name and Part Name)</span></td>
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <lable><strong>Part Category<span class="red">*</span></strong></lable>
+
+                                        <select name="vc" id="vc" class="form-control" style="width:264px;height:31px;" required>
+                                            <option value="">Select</option>
+                                            <option value="Air Conditioning & Heating">Air Conditioning & Heating</option><option value="Air Intake & Fuel Delivery">Air Intake & Fuel Delivery</option><option value="Axles & Axle Parts">Axles & Axle Parts</option><option value="Battery">Battery</option><option value="Brakes">Brakes</option><option value="Car Audio Systems">Car Audio Systems</option><option value="Car DVR">Car DVR</option><option value="Car Tuning & Styling">Car Tuning & Styling</option><option value="Carburetor">Carburetor</option><option value="Chassis">Chassis</option><option value="Electrical Components">Electrical Components</option><option value="Emission Systems">Emission Systems</option><option value="Engine Cooling">Engine Cooling</option><option value="Engines & Engine Parts">Engines & Engine Parts</option><option value="Exhausts & Exhaust Parts">Exhausts & Exhaust Parts</option><option value="External & Body Parts">External & Body Parts</option><option value="External Lights & Indicators">External Lights & Indicators</option><option value="Footrests, Pedals & Pegs">Footrests, Pedals & Pegs</option><option value="Freezer">Freezer</option><option value="Gauges, Dials & Instruments">Gauges, Dials & Instruments</option><option value="Generator">Generator</option><option value="GPS & In-Car Technology">GPS & In-Car Technology</option><option value="Handlebars, Grips & Levers">Handlebars, Grips & Levers</option><option value="Helmets, Clothing & Protection">Helmets, Clothing & Protection</option><option value="Interior Parts & Furnishings">Interior Parts & Furnishings</option><option value="Lighting & Indicators">Lighting & Indicators</option><option value="Mirrors">Mirrors</option><option value="Oils, Lubricants & Fluids">Oils, Lubricants & Fluids</option><option value="Other">Other</option><option value="Reverse Camera">Reverse Camera</option><option value="Seating">Seating</option><option value="Service Kits">Service Kits</option><option value="Silencer">Silencer</option><option value="Starter Motors">Starter Motors</option><option value="Stickers">Stickers</option><option value="Suspension, Steering & Handling">Suspension, Steering & Handling</option><option value="Transmission & Drivetrain">Transmission & Drivetrain</option><option value="Turbos & Superchargers">Turbos & Superchargers</option><option value="Wheels, Tyres & Rims">Wheels, Tyres & Rims</option><option value="Windscreen Wipers & Washers">Windscreen Wipers & Washers</option></select>
+
+                                    </div>
+
+                                </div>&nbsp
+                            </div>
+                            <div class="col-md-12 w-10 p-3">
+                                <div class="row">
+
+
+                                    <div class="col-md-6">
+
+                                        <label for="usr">Price <span style="color:red; font-size:13px;">*</span></label>
+                                        <div class="input-group Price_bar vld" style="width:264px;height:31px;">
+                                            <span class="input-group-addon">Rs</span>
+                                            <input value="" id="price" type="number" class="form-control" name="price"  placeholder="Ex: 400000">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-12  w-10 p-3">
+                                <div class="row"> 
+
+
+                                    <div class="col-md-12">
+                                      
+
+                               
+                                    <div class="form-group">
+                                        <label for="comment">Additional Info: ( 5000 / <span id="discription_rest"></span>
+                                            ) <span style="color:red; font-size:15px;">*</span></label>
+                                        <textarea class="form-control vld" rows="5" id="discription" name="discription"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                               
+
+                               
+                           
+                            <div class="col-md-12  w-10 p-3">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <h4>Upload Images</h4>If you have problem uploading images in Mobile Broadband, Try uploading only one small image file.
+
+
+                                        <form action="/action_page.php">
+
+                                            <div class="row">
+                                                <form action="multiupload.php" method="post" enctype="multipart/form-data">
+                                                    <div class="col-md-6">
+                                                        <input style="width:264px;height:40px;" type="file" class="form-control" id="images" name="images[]" onchange="preview_images();" multiple/>
+                                                    </div>
+
+
+
+                                                    <div class="row" id="image_preview"></div>
+
+
+                                            </div>&nbsp
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <button class="b" type="submit">Add Parts</button>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+
+                                </div>&nbsp
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="space-3"></div>
+    </section>
+
+    <
+
+
+
+
+
+
+
+
+    <footer class="footer mt-auto py-3">
+
+        <div style="background-color: black;" class="container-fluid">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <h4 style="color: white;">Connect With Us</h4> 
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a style="margin-left :28px;" href="#" class="fa fa-facebook"></a>
+                    <p style="color: white;">Copyright © Riyasewana Lanka (Pvt) Ltd.</p>                                       
+                </div>
+
+                <div class="col-sm-2">       
+                    <h4 style="color: white;text-decoration: underline;">Help & Support</h4>
+                    <a href="#">Contac Us </a><br>
+                    <a href="#">contribute</a>   
+                </div>
+
+                <div class="col-sm-2">                                
+                    <h4 style="color: white;text-decoration: underline;">Social</h4>
+                    <a href="#">FaceBook</a><br>
+                    <a href="#">Twitter</a>                                           
+                </div>
+
+                <div class="col-sm-2">
+                    <h4 style="color: white;text-decoration: underline;">About Us</h4> 
+                    <a href="#">About Us </a><br>
+                    <a href="#">Terms & Conditions </a><br>
+                    <a href="#">Privacy Policy </a><br>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </footer>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

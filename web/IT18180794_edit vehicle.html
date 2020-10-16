@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="http://www.expertphp.in/js/jquery.form.js"></script>
+
+        <style>
+
+            html{
+                position: relative;
+                min-height: 100%;
+            }
+            body{
+                margin-bottom: 60px;
+                background-color:#eef0ee; 
+            }
+
+            .footer{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50px;
+                background-color: black;
+            }
+
+
+
+            .fa {
+                padding: 3px;
+                font-size: 30px;
+                width: 35px;
+                text-align: center;
+                text-decoration: none;
+                margin: 5px 2px;
+            }
+
+
+            .fa-facebook {
+                background: #3B5998;
+                color: white;
+            }
+
+            .fa-twitter {
+                background: #55ACEE;
+                color: white;
+            }
+            .intext
+            {
+                width:250px;
+                height:27px;
+                border:2px solid #a6a6a6;
+                border-radius:3px;
+                font-size:14px;
+                padding:0px 5px;
+            }
+            .intext:focus
+            {
+                border:2px solid #3db2d0;
+            }
+
+            .btnintxt{
+                width:256px;
+                height:34px;
+                background-color:#e67e22;
+                border-radius:3px;
+                color:#fff;
+                font-weight:bold;
+                border:2px solid #e67e22;
+                -webkit-appearance:button;
+            }
+            .btnintxt:hover{
+                opacity:0.85;
+                cursor:pointer;
+            }
+            .gifcss{
+                vertical-align:middle;
+                display:none;
+                padding-top:5px;
+            }
+            div.a {
+
+                background-color:#e4e8e5;
+                width: 740px;
+                border: 5px solid lightskyblue;
+                padding: 150px;
+                margin: 100px;
+                border-radius:25px;
+
+
+            }
+
+
+
+            user agent stylesheet
+            table {
+                border-collapse: separate;
+                border-spacing: 2px;
+            }
+            body {
+                line-height: 1;
+                color: #636b75;
+                font: 12px open sans,Arial,sans-serif;
+            }
+            span.red{
+                color:red;
+            }
+            button.b{
+
+                background-color:#55ACEE;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 14px;
+                margin: 4px 2px;
+                cursor: pointer;
+
+                width:250px;
+                height:50px;
+
+
+            }
+            div.frm{
+                padding: 5px 5px 12px 15px;
+                vertical-align: middle;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </style>
+            <script>
+                function preview_images()
+                {
+                    var total_file = document.getElementById("images").files.length;
+                    for (var i = 0; i < total_file; i++)
+                    {
+                        $('#image_preview').append("<div class='col-md-3'><img class='img-responsive' src='" + URL.createObjectURL(event.target.files[i]) + "'></div>");
+                    }
+                }
+                $('#add_more').click(function () {
+                    "use strict";
+                    $(this).before($("<div/>", {
+                        id: 'filediv'
+                    }).fadeIn('slow').append(
+                            $("<input/>", {
+                                name: 'file[]',
+                                type: 'file',
+                                id: 'file',
+                                multiple: 'multiple',
+                                accept: 'image/*'
+                            })
+                            ));
+                });
+
+                $('#upload').click(function (e) {
+                    "use strict";
+                    e.preventDefault();
+
+                    if (window.filesToUpload.length === 0 || typeof window.filesToUpload === "undefined") {
+                        alert("No files are selected.");
+                        return false;
+                    }
+
+                    // Now, upload the files below...
+                    // https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications#Handling_the_upload_process_for_a_file.2C_asynchronously
+                });
+
+                deletePreview = function (ele, i) {
+                    "use strict";
+                    try {
+                        $(ele).parent().remove();
+                        window.filesToUpload.splice(i, 1);
+                    } catch (e) {
+                        console.log(e.message);
+                    }
+                }
+
+                $("#file").on('change', function () {
+                    "use strict";
+
+                    // create an empty array for the files to reside.
+                    window.filesToUpload = [];
+
+                    if (this.files.length >= 1) {
+                        $("[id^=previewImg]").remove();
+                        $.each(this.files, function (i, img) {
+                            var reader = new FileReader(),
+                                    newElement = $("<div id='previewImg" + i + "' class='previewBox'><img /></div>"),
+                                    deleteBtn = $("<span class='delete' onClick='deletePreview(this, " + i + ")'>X</span>").prependTo(newElement),
+                                    preview = newElement.find("img");
+
+                            reader.onloadend = function () {
+                                preview.attr("src", reader.result);
+                                preview.attr("alt", img.name);
+                            };
+
+                            try {
+                                window.filesToUpload.push(document.getElementById("file").files[i]);
+                            } catch (e) {
+                                console.log(e.message);
+                            }
+
+                            if (img) {
+                                reader.readAsDataURL(img);
+                            } else {
+                                preview.src = "";
+                            }
+
+                            newElement.appendTo("#filediv");
+                        });
+                    }
+                });
+            </script>
+
+
+        </head>
+        <body>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+
+
+                <img style="width: 129px; height: 55px;" src="images/logo1.jpg">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarText">
+
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item active">
+                            <a style="color: white;" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a style="color: white;"class="nav-link" href="#">Edit My AD</a>
+                        </li>
+
+                    </ul>
+
+                    <span class="navbar-text">
+
+                        <button style="width: 290px;"type="button" class="btn btn-outline-primary">Post a Free Ad</button>
+                        <button style="margin-left :25px;"style="margin-left :55px;" type="button" class="btn btn-outline-primary">Register</button>
+                        <button style="margin-left :25px;"type="button" class="btn btn-outline-primary">Login</button>
+
+                    </span>
+
+                </div>
+
+            </nav>
+
+
+
+            <div class="space-2"></div>
+
+            <section class="user-xcd-adding">
+
+                <div class="container bg_w">
+                    <div class="col-md-12">
+
+                    <form action="/new.php">
+
+                        <div class="h-100 d-inline-block" style=" width: 70% ;background-color:white;margin-left: 15% ;border:5px solid #55ACEE">
+                                <h2 style="margin-left:3%">Edit Vehicle Details</h2>
+                                <div style="margin-left:3%;font-size:11px;padding:5px 0px;">Items marked with <span class="red">*</span> are required. </div>
+                            <br />
+                            <h4><span style="font-size:13px;font-weight:bold;color:#1d5c84"><p style=" margin-left:3%">Add vehicles that are already in Sri Lanka. Japanese auction Ads will be removed.</span></h4>
+                                <div class="col-md-12 single-xcd-form-div">
+                                    <div class="row">
+
+
+
+                                        <div class="col-md-12">
+                                            <div class="row">
+
+
+                                                <div class="col-md-6">
+
+                                                    <h3>Contact Info</h3>
+                                                </div>
+                                                <div class="col-md-6"> 
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-md-12">
+                                            <div class="row">
+
+
+                                                <div class="col-md-6">
+                                                    
+                                                        <lable><strong>Name<span class="red">*</span></strong></lable><br>
+                                                        <input type="text" style="width:264px;height:31px;" class="form-control" name="fname" id="fname" value="" required />
+                                                
+                                            </div> 
+                                            <div class="col-md-6">
+                                                <lable><strong>Phone number<span class="red">*</span></strong></lable><br>
+                                                <input maxlength="14" style="width:264px;height:31px;" size="14" type="text" class="form-control" name="phn" id="phn" value="" required />
+                                                <br>
+                                                <span style="font-size:11px;"> &nbsp;(10 numbers) Only Mobile Phone numbers</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+
+                                                <lable><strong>City<span class="red">*</span></strong></lable><br>
+
+                                                <select name="city" id="city" class="form-control" style="width:264px;height:31px;" required>
+                                                    <option value="Ambalangoda">Ambalangoda</option><option value="Ampara">Ampara</option><option selected="selected" value="Anuradapura">Anuradapura</option><option value="Avissawella">Avissawella</option><option value="Bandaragama">Bandaragama</option><option value="Badulla">Badulla</option><option value="Balangoda">Balangoda</option><option value="Bandarawela">Bandarawela</option><option value="Battaramulla">Battaramulla</option><option value="Batticaloa">Batticaloa</option><option value="Beruwala">Beruwala</option><option value="Boralesgamuwa">Boralesgamuwa</option><option value="Chavakacheri">Chavakacheri</option><option value="Chilaw">Chilaw</option><option value="Colombo">Colombo</option><option value="Daluguma">Daluguma</option><option value="Dambulla">Dambulla</option><option value="Dehiwala-Mount-Lavinia">Dehiwala-Mount-Lavinia</option><option value="Divulapitiya">Divulapitiya</option><option value="Dompe">Dompe</option><option value="Eheliyagoda">Eheliyagoda</option><option value="Embilipitiya">Embilipitiya</option><option value="Eravur">Eravur</option><option value="Galle">Galle</option><option value="Gampaha">Gampaha</option><option value="Gampola">Gampola</option><option value="Hambantota">Hambantota</option><option value="Haputale">Haputale</option><option value="Harispattuwa">Harispattuwa</option><option value="Hatton">Hatton</option><option value="Hendala">Hendala</option><option value="Homagama">Homagama</option><option value="Horana">Horana</option><option value="Ja-Ela">Ja-Ela</option><option value="Jaffna">Jaffna</option><option value="Kadawatha">Kadawatha</option><option value="Kadugannawa">Kadugannawa</option><option value="Kaduwela">Kaduwela</option><option value="Kalawana">Kalawana</option><option value="Kalmunai">Kalmunai</option><option value="Kalutara">Kalutara</option><option value="Kandana">Kandana</option><option value="Kandy">Kandy</option><option value="Kattankudy">Kattankudy</option><option value="Katunayake">Katunayake</option><option value="Kegalle">Kegalle</option><option value="Kelaniya">Kelaniya</option><option value="Kesbewa">Kesbewa</option><option value="Keselwatta">Keselwatta</option><option value="Kilinochchi">Kilinochchi</option><option value="Kiribathgoda">Kiribathgoda</option><option value="Kolonnawa">Kolonnawa</option><option value="Kotikawatta">Kotikawatta</option><option value="Kotte">Kotte</option><option value="Kottawa">Kottawa</option><option value="Kuliyapitiya">Kuliyapitiya</option><option value="Kurunegala">Kurunegala</option><option value="Maharagama">Maharagama</option><option value="Mahiyanganaya">Mahiyanganaya</option><option value="Malabe">Malabe</option><option value="Mannar">Mannar</option><option value="Matale">Matale</option><option value="Matara">Matara</option><option value="Matugama">Matugama</option><option value="Mawanella">Mawanella</option><option value="Minuwangoda">Minuwangoda</option><option value="Mirigama">Mirigama</option><option value="Moneragala">Moneragala</option><option value="Moratuwa">Moratuwa</option><option value="Mullaitivu">Mullaitivu</option><option value="Mulleriyawa">Mulleriyawa</option><option value="Nawalapitiya">Nawalapitiya</option><option value="Negombo">Negombo</option><option value="Nittambuwa">Nittambuwa</option><option value="Nuwara-Eliya">Nuwara-Eliya</option><option value="Nugegoda">Nugegoda</option><option value="Padukka">Padukka</option><option value="Panadura">Panadura</option><option value="Pannipitiya">Pannipitiya</option><option value="Peliyagoda">Peliyagoda</option><option value="Piliyandala">Piliyandala</option><option value="Polgahawela">Polgahawela</option><option value="Polonnaruwa">Polonnaruwa</option><option value="Puttalam">Puttalam</option><option value="Ragama">Ragama</option><option value="Ratnapura">Ratnapura</option><option value="Seethawakapura">Seethawakapura</option><option value="Sigiriya">Sigiriya</option><option value="Talawakele">Talawakele</option><option value="Tangalle">Tangalle</option><option value="Trincomalee">Trincomalee</option><option value="Valvettithurai">Valvettithurai</option><option value="Vavuniya">Vavuniya</option><option value="Wattala">Wattala</option><option value="Wattegama">Wattegama</option><option value="Warakapola">Warakapola</option><option value="Weligama">Weligama</option><option value="Welimada">Welimada</option><option value="Welisara">Welisara</option></select>
+
+                                            </div>
+                                            <div class="col-md-6">   
+                                            </div>
+
+                                        </div>
+                                    </div>&nbsp
+
+
+
+
+
+                                    <div class="col-md-12">
+                                        <div class="row">
+
+
+                                            <div class="col-md-6">
+
+
+
+                                                <h3>Vehicle Info</h3>
+                                            </div>
+                                            <div class="col-md-6"> 
+                                            </div>
+                                        </div>&nbsp
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <label><strong>Vehicle Type<span class="red">*</span></strong></label><br>
+
+                                        <select onchange="chngbike()" name="vtype" id="vtype" class="form-control" style="width:264px;height:31px;" required>
+                                            <option value="">Select Type</option>
+                                            <option value="Car">Car</option><option value="Van">Van</option><option value="SUV">SUV / Jeep</option><option value="Crew Cab">Crew Cab</option><option value="Wagon">Wagon</option><option value="Pickup">Pickup / Double Cab</option><option value="Bus">Bus</option><option value="Lorry">Lorry / Tipper</option><option value="Three Wheel">Three Wheel</option><option value="Tractor">Tractor</option><option value="Heavy-Duty">Heavy-Duty</option><option value="Other">Other</option><option value="motorcycle">Motorcycle</option></select>
+
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <lable><strong>Vehicle Condition<span class="red">*</span></strong></lable><br>
+
+                                        <select name="vcat" id="vcat" class="form-control" style="width:264px;height:31px;" required>
+                                            <option value="">Select Condition</option>
+                                            <option value="Antique">Antique</option><option value="Brand New">Brand New</option><option value="Registered (Used)">Registered (Used)</option><option value="Unregistered (Recondition)">Unregistered (Recondition)</option></select>
+                                    </div>
+
+                                </div>&nbsp
+                            </div>
+                            <div class="col-md-12 w-10 p-3">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <lable><strong>Vehicle Make<span class="red">*</span></strong></lable><br>
+
+                                        <select name="make" id="make" class="form-control" style="width:264px;height:31px;" required>
+                                            <option value="">Select Make</option>
+                                            <option value="Acura">Acura</option><option value="Alfa-Romeo">Alfa-Romeo</option><option value="Aprilia">Aprilia</option><option value="Ashok-Leyland">Ashok-Leyland</option><option value="Aston">Aston</option><option value="Atco">Atco</option><option value="Audi">Audi</option><option value="Austin">Austin</option><option value="Bajaj">Bajaj</option><option value="Bentley">Bentley</option><option value="BMW">BMW</option><option value="Cadillac">Cadillac</option><option value="Cal">Cal</option><option value="CAT">CAT</option><option value="Ceygra">Ceygra</option><option value="Changan">Changan</option><option value="Chery">Chery</option><option value="Chevrolet">Chevrolet</option><option value="Chrysler">Chrysler</option><option value="Citroen">Citroen</option><option value="Corvette">Corvette</option><option value="Daewoo">Daewoo</option><option value="Daido">Daido</option><option value="Daihatsu">Daihatsu</option><option value="Datsun">Datsun</option><option value="Demak">Demak</option><option value="Dfac">Dfac</option><option value="DFSK">DFSK</option><option value="Ducati">Ducati</option><option value="Eicher">Eicher</option><option value="FAW">FAW</option><option value="Ferrari">Ferrari</option><option value="Fiat">Fiat</option><option value="Force">Force</option><option value="Ford">Ford</option><option value="Foton">Foton</option><option value="Hero">Hero</option><option value="Hero-Honda">Hero-Honda</option><option value="Higer">Higer</option><option value="Hillman">Hillman</option><option value="HINO">HINO</option><option value="Hitachi">Hitachi</option><option value="Honda">Honda</option><option value="Hummer">Hummer</option><option value="Hyundai">Hyundai</option><option value="Isuzu">Isuzu</option><option value="Iveco">Iveco</option><option value="JAC">JAC</option><option value="Jaguar">Jaguar</option><option value="JCB">JCB</option><option value="Jeep">Jeep</option><option value="JiaLing">JiaLing</option><option value="JMC">JMC</option><option value="John-Deere">John-Deere</option><option value="Jonway">Jonway</option><option value="KAPLA">KAPLA</option><option value="Kawasaki">Kawasaki</option><option value="Kia">Kia</option><option value="Kinetic">Kinetic</option><option value="KMC">KMC</option><option value="Kobelco">Kobelco</option><option value="Komatsu">Komatsu</option><option value="KTM">KTM</option><option value="Kubota">Kubota</option><option value="Lamborghini">Lamborghini</option><option value="Land-Rover">Land-Rover</option><option value="Lexus">Lexus</option><option value="Loncin">Loncin</option><option value="Longjia">Longjia</option><option value="Lotus">Lotus</option><option value="Lti">Lti</option><option value="Mahindra">Mahindra</option><option value="Maserati">Maserati</option><option value="Massey-Ferguson">Massey-Ferguson</option><option value="Mazda">Mazda</option><option value="Mercedes-Benz">Mercedes-Benz</option><option value="Metrocab">Metrocab</option><option value="MG">MG</option><option value="Mg-Rover">Mg-Rover</option><option value="Micro">Micro</option><option value="Mini">Mini</option><option value="Minnelli">Minnelli</option><option value="Mitsubishi">Mitsubishi</option><option value="Morgan">Morgan</option><option value="Morris">Morris</option><option value="Nissan">Nissan</option><option value="Opel">Opel</option><option value="Other">Other</option><option value="Perodua">Perodua</option><option value="Peugeot">Peugeot</option><option value="Piaggio">Piaggio</option><option value="Porsche">Porsche</option><option value="Proton">Proton</option><option value="Range-Rover">Range-Rover</option><option value="Ranomoto">Ranomoto</option><option value="Renault">Renault</option><option value="Reva">Reva</option><option value="Rolls-Royce">Rolls-Royce</option><option value="Saab">Saab</option><option value="Sakai">Sakai</option><option value="Seat">Seat</option><option value="Singer">Singer</option><option value="Skoda">Skoda</option><option value="Smart">Smart</option><option value="Subaru">Subaru</option><option value="Suzuki">Suzuki</option><option value="Syuk">Syuk</option><option value="TAFE">TAFE</option><option value="Tata">Tata</option><option value="Tesla">Tesla</option><option value="Toyota">Toyota</option><option value="Triumph">Triumph</option><option value="TVS">TVS</option><option value="Vauxhall">Vauxhall</option><option value="Vespa">Vespa</option><option value="Volkswagen">Volkswagen</option><option value="Volvo">Volvo</option><option value="Wave">Wave</option><option value="Willys">Willys</option><option value="Yamaha">Yamaha</option><option value="Yanmar">Yanmar</option><option value="Yuejin">Yuejin</option><option value="Zongshen">Zongshen</option><option value="Zotye">Zotye</option></select>
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <lable><strong>Model<span class="red">*</span></strong></lable><br>
+                                        <input type="text" style="width:264px;height:31px;" class="form-control" name="model" id="model" value="" required />
+                                    </div>
+
+                                </div>&nbsp
+                            </div>
+                            <div class="col-md-12 w-10 p-3">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <lable><strong>Manufacture Year<span class="red">*</span></strong></lable><br>
+
+                                        <select name="year" id="year" class="form-control" style="width:264px;height:31px;" required>
+                                            <option value="">Select Year</option>
+                                            <option value="2020">2020</option><option value="2019">2019</option><option value="2018">2018</option><option value="2017">2017</option><option value="2016">2016</option><option value="2015">2015</option><option value="2014">2014</option><option value="2013">2013</option><option value="2012">2012</option><option value="2011">2011</option><option value="2010">2010</option><option value="2009">2009</option><option value="2008">2008</option><option value="2007">2007</option><option value="2006">2006</option><option value="2005">2005</option><option value="2004">2004</option><option value="2003">2003</option><option value="2002">2002</option><option value="2001">2001</option><option value="2000">2000</option><option value="1999">1999</option><option value="1998">1998</option><option value="1997">1997</option><option value="1996">1996</option><option value="1995">1995</option><option value="1994">1994</option><option value="1993">1993</option><option value="1992">1992</option><option value="1991">1991</option><option value="1990">1990</option><option value="1989">1989</option><option value="1988">1988</option><option value="1987">1987</option><option value="1986">1986</option><option value="1985">1985</option><option value="1984">1984</option><option value="1983">1983</option><option value="1982">1982</option><option value="1981">1981</option><option value="1980">1980</option><option value="1979">1979</option><option value="1978">1978</option><option value="1977">1977</option><option value="1976">1976</option><option value="1975">1975</option><option value="1974">1974</option><option value="1973">1973</option><option value="1972">1972</option><option value="1971">1971</option><option value="1970">1970</option><option value="1969">1969</option><option value="1968">1968</option><option value="1967">1967</option><option value="1966">1966</option><option value="1965">1965</option><option value="1964">1964</option><option value="1963">1963</option><option value="1962">1962</option><option value="1961">1961</option><option value="1960">1960</option><option value="1959">1959</option><option value="1958">1958</option><option value="1957">1957</option><option value="1956">1956</option><option value="1955">1955</option><option value="1954">1954</option><option value="1953">1953</option><option value="1952">1952</option><option value="1951">1951</option><option value="1950">1950</option><option value="1949">1949</option><option value="1948">1948</option><option value="1900">Before 1948</option></select>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <label for="usr">Price <span style="color:red; font-size:13px;">*</span></label>
+                                        <div class="input-group Price_bar vld" style="width:264px;height:31px;">
+                                            <span class="input-group-addon">Rs</span>
+                                            <input value="" id="price" type="text" class="form-control" name="price"  placeholder="Ex: 400000">
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 w-10 p-3">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <lable><strong>Transmission<span class="red">*</span></strong></lable><br>
+
+                                        <select name="transmission" id="transmission" class="form-control" style="width:264px;height:31px;" required>
+                                            <option value="">Select Transmission</option>
+                                            <option value="Automatic">Automatic</option><option value="Manual">Manual</option></select>
+                                    </div>
+                                    <div class="col-md-6">
+
+
+                                        <lable><strong>Fuel Type<span class="red">*</span></strong></lable><br>
+
+                                        <select name="fuel" id="fuel" class="form-control" style="width:264px;height:31px;" required>
+                                            <option value="">Select Fuel Type</option>
+                                            <option value="Diesel">Diesel</option><option value="Petrol">Petrol</option><option value="Electric">Electric</option><option value="Hybrid">Hybrid</option><option value="Gas">Gas</option></select>
+                                    </div>
+
+
+                                </div>&nbsp
+                            </div>
+                            <div class="col-md-12  w-10 p-3">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+
+                                        <label for="usr">Engine capacity <span style="color:red; font-size:15px;">*</span></label>
+                                        <div class="input-group" style="width:264px;height:31px;">
+                                            <input  value="" id="engine_capacity" type="text" class="form-control vld" name="engine_capacity" placeholder="Ex: 1500">
+                                            <span class="input-group-addon"> CC </span>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+
+                                        <label for="usr">Mileage <span style="color:red; font-size:15px;">*</span></label>
+                                        <div class="input-group" style="width:264px;height:31px;">
+                                            <input id="mileage" type="text" class="form-control vld" name="mileage" placeholder="" value="">
+                                            <span class="input-group-addon"> KM </span>
+                                        </div>
+
+                                    </div>
+                                </div>&nbsp
+                            </div>
+
+                            <div class="col-md-12  w-10 p-3">
+                                <div class="row"> 
+                                    <div class="col-md-12">
+
+                                        <lable><strong>Options</strong></lable>&nbsp;&nbsp;<br>
+
+                                    &nbsp;&nbsp;<input class="fuel_type vld checkboxcheked" type="checkbox" name="options[]" value="AIR CONDITION" /> AIR CONDITION&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="options[]" value="POWER STEERING" /> POWER STEERING&nbsp;&nbsp;<br /><br />&nbsp;&nbsp;<input type="checkbox" name="options[]" value="POWER MIRROR" /> POWER MIRROR&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="options[]" value="POWER WINDOW" /> POWER WINDOW&nbsp;&nbsp;</td>
+                                    </div>
+
+                                </div>&nbsp
+                            </div>
+                            <div class="col-md-12">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label for="comment">Additional Info: ( 5000 / <span id="discription_rest"></span>
+                                                ) <span style="color:red; font-size:15px;">*</span></label>
+                                            <textarea class="form-control vld" rows="5" id="discription" name="discription"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12  w-10 p-3">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <h4>Upload Images</h4>If you have problem uploading images in Mobile Broadband, Try uploading only one small image file.
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12  w-10 p-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        
+
+
+
+                                            <input style="width:264px;height:40px;" type="file" class="form-control" id="images" name="images[]" onchange="preview_images();" multiple/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12  w-10 p-3">
+                                <div class="row">
+                                    <div class="col-md-6">
+
+
+                                        <div class="row" id="image_preview"></div>
+                                    </div>
+
+                                </div>&nbsp
+                            
+                            </div>
+
+                        
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            <div class="col-md-6">
+                                <a href="newhtml1.html"><button class="b" type="submit">edit Vehicle</button></a>
+                            </div>
+                            <div class="col-md-6">
+
+                            </div>
+
+                        </div>&nbsp
+                    </div>
+                </div>
+                    </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="space-3"></div>
+</section>
+
+<
+
+
+
+
+
+
+
+
+<footer class="footer mt-auto py-3">
+
+    <div style="background-color: black;" class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <h4 style="color: white;">Connect With Us</h4> 
+                <a href="#" class="fa fa-twitter"></a>
+                <a style="margin-left :28px;" href="#" class="fa fa-facebook"></a>
+                <p style="color: white;">Copyright © Riyasewana Lanka (Pvt) Ltd.</p>                                       
+            </div>
+
+            <div class="col-sm-2">       
+                <h4 style="color: white;text-decoration: underline;">Help & Support</h4>
+                <a href="#">Contac Us </a><br>
+                <a href="#">contribute</a>   
+            </div>
+
+            <div class="col-sm-2">                                
+                <h4 style="color: white;text-decoration: underline;">Social</h4>
+                <a href="#">FaceBook</a><br>
+                <a href="#">Twitter</a>                                           
+            </div>
+
+            <div class="col-sm-2">
+                <h4 style="color: white;text-decoration: underline;">About Us</h4> 
+                <a href="#">About Us </a><br>
+                <a href="#">Terms & Conditions </a><br>
+                <a href="#">Privacy Policy </a><br>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

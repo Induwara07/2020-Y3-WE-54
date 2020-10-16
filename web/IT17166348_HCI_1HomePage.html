@@ -2,383 +2,376 @@
 <html>
     <head>
         <title>Home Page</title>
-        
+
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-        
-        
-        
-<style>
-    
-html{
-        position: relative;
-        min-height: 100%;
-   }
-body{
-        margin-bottom: 60px;
-   }
-    
-.footer{
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 50px;
-        
-    }
-   
-.fa {
-  padding: 3px;
-  font-size: 30px;
-  width: 35px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-}
-
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-    .fa-twitter {
-  background: #55ACEE;
-  color: white;
-}
 
 
-footer {
-    font-family: sans-serif;
-   
-}
 
-label {
-    font-size: 2rem;
-    padding-right: 10px;
-    
-}
+        <style>
 
-#mypet-select {
-    font-size: 1.1rem;
-    padding: 2px 5px;
-    color: #ffffff;
-   
-    
-}
+            html{
+                position: relative;
+                min-height: 100%;
+            }
+            body{
+                margin-bottom: 60px;
+            }
 
-footer {
-    font-size: .8rem;
-    position: absolute;
-    bottom: 30px;
-   
-    
-}
+            .footer{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50px;
 
-.output {
-    background: center/cover no-repeat url('/media/cc0-images/hamster.jpg');
-    position: relative;
-    
-}
+            }
 
+            .fa {
+                padding: 3px;
+                font-size: 30px;
+                width: 35px;
+                text-align: center;
+                text-decoration: none;
+                margin: 5px 2px;
+            }
 
-.one{
-    color: darkblue; 
-}
+            .fa-facebook {
+                background: #3B5998;
+                color: white;
+            }
 
-</style>
+            .fa-twitter {
+                background: #55ACEE;
+                color: white;
+            }
 
 
-</head>
-    
-    
- <body style="background-color: #ECF0F1">
+            footer {
+                font-family: sans-serif;
 
-    <nav style="background-color:#273746;" class="navbar navbar-expand-lg navbar-light">
+            }
 
-        <img style="width: 129px; height: 55px;"src="images/Z-unnamed.png">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a style="margin-left :8px;color: white;font-size:20px;" class="nav-link" href="#">Edit My AD<span class="sr-only">(current)</span></a>
-                </li>
- 
-                <li class="nav-item">
-                    <a style="margin-left:10px;font-size:20px;color: white;"class="nav-link" href="#">Sell Vehicles & Parts</a>
-                </li>  
+            label {
+                font-size: 2rem;
+                padding-right: 10px;
 
-                <select style="margin-left :10px;background-color:#273746;border: none;font-size:20px;" name="pets" id="mypet-select">
-                    <option  value="">Buy Vehicles</option>
-                    <option style="background-color: white;color: black;font-size: 20px;" value="cat">Vehicles</option>
-                    <option style="background-color: white;color: black;font-size: 20px;" value="hamster">Cars</option>
-                    <option style="background-color: white;color: black;font-size: 20px;" value="parrot">Vans</option>
-                    <option style="background-color: white;color: black;font-size: 20px;" value="spider">UV/Jeeps</option>
-                    <option style="background-color: white;color: black;font-size: 20px;" value="goldfish">Lorry</option>
-                    <option style="background-color: white;color: black;font-size: 20px;" value="dog">ThreeWheels</option>
-                    <option style="background-color: white;color: black;font-size: 20px;" value="dog">Spare Parts</option>
-                </select>
+            }
 
-                
-            </ul>
-    
-            <span class="navbar-text">
-        
-                <button style="width: 290px;"type="button" class="btn btn-outline-primary">Post a Free Ad</button>
-                <button style="margin-left :25px;"style="margin-left :55px;" type="button" class="btn btn-outline-primary" onclick="window.location.href='IT17166348_HCI_2RegistrationPage.html';">Register</button>
-                <button style="margin-left :25px;"type="button" class="btn btn-outline-primary" onclick="window.location.href='IT17166348_HCI_3Login.html';">Login</button>
-     
-            </span>
-        </div>
+            #mypet-select {
+                font-size: 1.1rem;
+                padding: 2px 5px;
+                color: #ffffff;
 
-    </nav>
-     
-   
 
-        
-<div class="container-fluid">
-    <br>
-        <div class="row">
-        
-            <div class="col-sm-3">
-            <b><label style="margin-left:20px;border-style: solid;font-size: 16px;height: 45px;width: 292px;"><pre style="font-size: 16px;"> Find The Best Vehicle For You</pre></label></b>
-            <br><br><br>
-            <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">
-                <option>Any Make</option>
-                <option>Cal</option>
-                <option>Cat</option>
-                <option>Hero</option>
-                <option>Proton</option>
-                <option>Atco</option>
-            </select>
-            <br><br>
-                
-            <input style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;" type="text" name="model" placeholder="Vehicle Model">
-            <br><br>
-                
-           <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">
-                <option>Any Type</option>
-                <option>Car</option>
-                <option>Van</option>
-                <option>Bus</option> 
-            </select>
-            <br><br>
-                  
-            <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">
-                <option>Any Condition</option>
-                <option>Brand New</option>
-                <option>Registered(used)</option>
-                <option>Unregistered(Recondition)</option>  
-            </select>
-            <br><br>
-            
-            <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">  
-                <option>City</option>
-                <option>Moratuwa</option>
-                <option>Ampara</option>
-                <option>Badulla</option>  
-            </select>
-            <br><br>
-            
-            <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">
-                <option>Price (Rs) </option>
-                <option>100000 - 500000</option>
-                <option>500000 - 1000000</option>
-                <option>1000000 - 1500000</option>      
-            </select>
-            <br><br>
-            
-            <button style="height: 45px;width: 290px;font-size: 25px;margin-left:20px;"type="button" class="btn btn-primary">Search</button>
-        </div>
-        <div class="col-sm-9">
-            
+            }
+
+            footer {
+                font-size: .8rem;
+                position: absolute;
+                bottom: 30px;
+
+
+            }
+
+            .output {
+                background: center/cover no-repeat url('/media/cc0-images/hamster.jpg');
+                position: relative;
+
+            }
+
+
+            .one{
+                color: darkblue; 
+            }
+
+        </style>
+
+
+    </head>
+
+
+    <body style="background-color: #ECF0F1">
+
+        <nav style="background-color:#273746;" class="navbar navbar-expand-lg navbar-light">
+
+            <img style="width: 129px; height: 55px;"src="images/Z-unnamed.png">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a style="margin-left :8px;color: white;font-size:20px;" class="nav-link" href="#">Edit My AD<span class="sr-only">(current)</span></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a style="margin-left:10px;font-size:20px;color: white;"class="nav-link" href="#">Sell Vehicles & Parts</a>
+                    </li>  
+
+                    <li class="nav-item">
+                        <a style="margin-left:10px;font-size:20px;color: white;"class="nav-link" href="IT17108850_Buy_vehicles.html">Buy Vehicles</a>
+                    </li>
+
+
+                </ul>
+
+                <span class="navbar-text">
+
+                    <button style="width: 290px;"type="button" class="btn btn-outline-primary">Post a Free Ad</button>
+                    <button style="margin-left :25px;"style="margin-left :55px;" type="button" class="btn btn-outline-primary" onclick="window.location.href = 'IT17166348_HCI_2RegistrationPage.html';">Register</button>
+                    <button style="margin-left :25px;"type="button" class="btn btn-outline-primary" onclick="window.location.href = 'IT17166348_HCI_3Login.html';">Login</button>
+
+                </span>
+            </div>
+
+        </nav>
+
+
+
+
+        <div class="container-fluid">
+            <br>
             <div class="row">
-                        
+
+                <div class="col-sm-3">
+                    <b><label style="margin-left:20px;border-style: solid;font-size: 16px;height: 45px;width: 292px;"><pre style="font-size: 16px;"> Find The Best Vehicle For You</pre></label></b>
+                    <br><br><br>
+                    <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">
+                        <option>Any Make</option>
+                        <option>Cal</option>
+                        <option>Cat</option>
+                        <option>Hero</option>
+                        <option>Proton</option>
+                        <option>Atco</option>
+                    </select>
+                    <br><br>
+
+                    <input style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;" type="text" name="model" placeholder="Vehicle Model">
+                    <br><br>
+
+                    <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">
+                        <option>Any Type</option>
+                        <option>Car</option>
+                        <option>Van</option>
+                        <option>Bus</option> 
+                    </select>
+                    <br><br>
+
+                    <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">
+                        <option>Any Condition</option>
+                        <option>Brand New</option>
+                        <option>Registered(used)</option>
+                        <option>Unregistered(Recondition)</option>  
+                    </select>
+                    <br><br>
+
+                    <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">  
+                        <option>City</option>
+                        <option>Moratuwa</option>
+                        <option>Ampara</option>
+                        <option>Badulla</option>  
+                    </select>
+                    <br><br>
+
+                    <select style="font-size: 20px;height: 45px;width: 290px;margin-left:20px;">
+                        <option>Price (Rs) </option>
+                        <option>100000 - 500000</option>
+                        <option>500000 - 1000000</option>
+                        <option>1000000 - 1500000</option>      
+                    </select>
+                    <br><br>
+
+                    <button style="height: 45px;width: 290px;font-size: 25px;margin-left:20px;"type="button" class="btn btn-primary">Search</button>
+                </div>
+                <div class="col-sm-9">
+
+                    <div class="row">
+
                         <div class="col-sm-4">
                             <img style="margin-left:-30px;height: 162px;width: 1125px;"src="images/Z-suv.jpg" >
                         </div>
-                        
+
                         <div class="col-sm-4">
                             <b><label style="font-size: 16px;height: 45px;"><pre style="font-size: 50px;">Welcome to Riyasewana</pre></label></b>
                             <br>
                             <b><label style="height: 45px;"><pre style="margin-top: -32px;font-size: 22px;"> The largest automobile marketplace in Sri Lanka</pre></label></b>
                         </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+
+                        <div class="col-sm-3">
+
+                            <b><p style="margin-left:-30px;">Popular Search</p></b>
+                            <div class="one">
+                                <a style="margin-left:-30px;" href="#">Toyota</a>
+                                <a style="margin-left :25px;" href="#">Nissan</a>
+                                <a style="margin-left :25px;" href="#">Honda</a>
+                                <br><br>
+                                <a style="margin-left:-30px;" href="#">Tata</a>
+                                <a style="margin-left :41px;" href="#">Yamaha</a>
+                                <a style="margin-left :17px;" href="#">TVS</a>
+                                <br><br>
+                                <a style="margin-left:-30px;" href="#">Isuzu</a>
+                                <a style="margin-left :31px;" href="#">Mazda</a>
+                                <a style="margin-left :31px;" href="#">All</a>
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-3">
+                            <b><p style="margin-left :25px;">Search Vehicles by Fuel</p></b>
+                            <div class="one">
+                                <a style="margin-left :23px;" href="#">Diesel</a>
+                                <a style="margin-left :35px;" href="#">Petrol</a>
+                                <a style="margin-left :35px;" href="#">Hybrid</a>
+                                <br><br>
+                                <a style="margin-left :23px;" href="#">Gas</a>
+                                <a style="margin-left :51px;" href="#">Electric</a>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <b><p style="margin-left :95px;">Search Vehicles by City</p></b>
+                            <div class="one">
+                                <a style="margin-left :95px;" href="#">All Types</a>
+                                <a style="margin-left :35px;" href="#">Colombo</a>
+                                <a style="margin-left :25px;" href="#">Gampaha</a>
+                                <a style="margin-left :15px;" href="#">Nugegoda</a>
+                                <br><br>
+                                <a style="margin-left :95px;" href="#">Malabe</a>
+                                <a style="margin-left :49px;" href="#">Moratuwa</a>
+                                <a style="margin-left :19px;" href="#">Matale</a>
+                                <a style="margin-left :35px;" href="#">Horana</a>
+                                <br><br>
+
+                            </div>
+                        </div>
+
+
+                    </div> 
+
+                    <br><br>
+
+                    <div class="row">
+
+                        <div class="col-sm-3">
+
+                            <b><p style="margin-left:-30px;">Browse By Vehicle Condition</p></b>
+                            <div class="one">
+                                <a style="margin-left:-30px;" href="#">Registered</a>
+                                <a style="margin-left :25px;" href="#">Brand New</a>
+                                <a style="margin-left :25px;" href="#">Antique</a>
+                                <br><br>
+                                <a style="margin-left:-30px;" href="#">Unregistered (Recondition)</a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-3">
+                            <b><p style="margin-left :21px;">Browse By Vehicle Type & Make</p></b>
+                            <div class="one">
+                                <a style="margin-left :23px;" href="#">All Type</a>
+                                <a style="margin-left :35px;" href="#">Car</a>
+                                <a style="margin-left :35px;" href="#">Van</a>
+                                <br><br>
+                                <a style="margin-left :23px;" href="#">Suv</a>
+                                <a style="margin-left :51px;" href="#">Bus</a>
+                                <a style="margin-left:47px;" href="#">Lorry</a>
+                                <br><br>
+                                <a style="margin-left :23px;" href="#">Other</a> 
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <b><p style="margin-left :95px;">Popular Brands & Types</p></b>
+                            <div class="one">
+                                <a style="margin-left :95px;" href="#">Toyota Car</a>
+                                <a style="margin-left :30px;" href="#">Toyota Van</a>
+                                <a style="margin-left :20px;" href="#">Toyota SUV</a>
+                                <a style="margin-left :10px;" href="#">Toyota Lorry</a>
+                                <br><br>
+                                <a style="margin-left :95px;" href="#">Nissan Van</a>
+                                <a style="margin-left :30px;" href="#">Nissan SUV</a>
+                                <a style="margin-left :20px;" href="#">Nissan Lorry</a>
+                                <a style="margin-left :10px;" href="#">Nissan Cars</a>
+                                <br><br>
+                                <a style="margin-left :95px;" href="#">Honda Car</a>
+                                <a style="margin-left :30px;" href="#">Honda SUV</a>
+                                <a style="margin-left :20px;" href="#">Tata Car</a>
+                                <a style="margin-left :10px;" href="#">Tata Cars</a>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+
+                </div>    
+
             </div>
-            <br>
-           
-            <div class="row">
-                
-                            <div class="col-sm-3">
-                                
-                                <b><p style="margin-left:-30px;">Popular Search</p></b>
-                                <div class="one">
-                                    <a style="margin-left:-30px;" href="#">Toyota</a>
-                                    <a style="margin-left :25px;" href="#">Nissan</a>
-                                    <a style="margin-left :25px;" href="#">Honda</a>
-                                    <br><br>
-                                    <a style="margin-left:-30px;" href="#">Tata</a>
-                                    <a style="margin-left :41px;" href="#">Yamaha</a>
-                                    <a style="margin-left :17px;" href="#">TVS</a>
-                                     <br><br>
-                                     <a style="margin-left:-30px;" href="#">Isuzu</a>
-                                    <a style="margin-left :31px;" href="#">Mazda</a>
-                                    <a style="margin-left :31px;" href="#">All</a>
-                                </div>
-                                
-                            </div>
-                                
-                             <div class="col-sm-3">
-                                 <b><p style="margin-left :25px;">Search Vehicles by Fuel</p></b>
-                                 <div class="one">
-                                    <a style="margin-left :23px;" href="#">Diesel</a>
-                                    <a style="margin-left :35px;" href="#">Petrol</a>
-                                    <a style="margin-left :35px;" href="#">Hybrid</a>
-                                    <br><br>
-                                    <a style="margin-left :23px;" href="#">Gas</a>
-                                    <a style="margin-left :51px;" href="#">Electric</a>
-                                    
-                                </div>
-                            </div>
-                           
-                            <div class="col-sm-6">
-                                <b><p style="margin-left :95px;">Search Vehicles by City</p></b>
-                                <div class="one">
-                                    <a style="margin-left :95px;" href="#">All Types</a>
-                                    <a style="margin-left :35px;" href="#">Colombo</a>
-                                    <a style="margin-left :25px;" href="#">Gampaha</a>
-                                    <a style="margin-left :15px;" href="#">Nugegoda</a>
-                                    <br><br>
-                                    <a style="margin-left :95px;" href="#">Malabe</a>
-                                    <a style="margin-left :49px;" href="#">Moratuwa</a>
-                                    <a style="margin-left :19px;" href="#">Matale</a>
-                                    <a style="margin-left :35px;" href="#">Horana</a>
-                                    <br><br>
-                                    
-                                </div>
-                            </div>
+
+        </div>
 
 
-            </div> 
-            
-            <br><br>
-            
-            <div class="row">
-                
-                            <div class="col-sm-3">
-                                
-                                <b><p style="margin-left:-30px;">Browse By Vehicle Condition</p></b>
-                                <div class="one">
-                                    <a style="margin-left:-30px;" href="#">Registered</a>
-                                    <a style="margin-left :25px;" href="#">Brand New</a>
-                                    <a style="margin-left :25px;" href="#">Antique</a>
-                                    <br><br>
-                                    <a style="margin-left:-30px;" href="#">Unregistered (Recondition)</a>
-                                   
-                                </div>
-                                
-                            </div>
-                                
-                             <div class="col-sm-3">
-                                 <b><p style="margin-left :21px;">Browse By Vehicle Type & Make</p></b>
-                                 <div class="one">
-                                    <a style="margin-left :23px;" href="#">All Type</a>
-                                    <a style="margin-left :35px;" href="#">Car</a>
-                                    <a style="margin-left :35px;" href="#">Van</a>
-                                    <br><br>
-                                    <a style="margin-left :23px;" href="#">Suv</a>
-                                    <a style="margin-left :51px;" href="#">Bus</a>
-                                    <a style="margin-left:47px;" href="#">Lorry</a>
-                                    <br><br>
-                                    <a style="margin-left :23px;" href="#">Other</a> 
-                                </div>
-                            </div>
-                           
-                            <div class="col-sm-6">
-                                <b><p style="margin-left :95px;">Popular Brands & Types</p></b>
-                                <div class="one">
-                                    <a style="margin-left :95px;" href="#">Toyota Car</a>
-                                    <a style="margin-left :30px;" href="#">Toyota Van</a>
-                                    <a style="margin-left :20px;" href="#">Toyota SUV</a>
-                                    <a style="margin-left :10px;" href="#">Toyota Lorry</a>
-                                    <br><br>
-                                    <a style="margin-left :95px;" href="#">Nissan Van</a>
-                                    <a style="margin-left :30px;" href="#">Nissan SUV</a>
-                                    <a style="margin-left :20px;" href="#">Nissan Lorry</a>
-                                    <a style="margin-left :10px;" href="#">Nissan Cars</a>
-                                    <br><br>
-                                    <a style="margin-left :95px;" href="#">Honda Car</a>
-                                    <a style="margin-left :30px;" href="#">Honda SUV</a>
-                                    <a style="margin-left :20px;" href="#">Tata Car</a>
-                                    <a style="margin-left :10px;" href="#">Tata Cars</a>
-                                </div>
-                            </div>
-                           
-            
-                
-                
-                
-            </div>
-            
-            
-    
-        </div>    
-              
-     </div>
-        
-</div>
-        
-        
-    
 
- <footer class="footer mt-auto py-3">
-    
-     <div style="background-color: #273746;" class="container-fluid">
-        
-         <div class="row">
-                            
-                <div class="col-sm-6">
-                    <h4 style="color: white;">Connect With Us</h4> 
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a style="margin-left :28px;" href="#" class="fa fa-facebook"></a>
-                    <p style="color: white;">Copyright © Riyasewana Lanka (Pvt) Ltd.</p>                                       
-                </div>
-                
-                <div class="col-sm-2">       
+
+        <footer class="footer mt-auto py-3">
+
+            <div style="background-color: #273746;" class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <h4 style="color: white;">Connect With Us</h4> 
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a style="margin-left :28px;" href="#" class="fa fa-facebook"></a>
+                        <p style="color: white;">Copyright © Riyasewana Lanka (Pvt) Ltd.</p>                                       
+                    </div>
+
+                    <div class="col-sm-2">       
                         <h4 style="color: white;text-decoration: underline;">Help & Support</h4>
                         <a style="font-size:20px;color: #3B5998" href="#">Contac Us </a><br>
                         <a style="font-size:20px;color: #3B5998" href="#">contribute</a>   
-                </div>
-             
-                <div class="col-sm-2">                                
-                       <h4 style="color: white;text-decoration: underline;">Social</h4>
-                       <a style="font-size:20px;color: #3B5998" href="#">FaceBook</a><br>
-                       <a style="font-size:20px;color: #3B5998" href="#">Twitter</a>                                           
-                </div>
-             
-                <div class="col-sm-2">
-                   <h4 style="color: white;text-decoration: underline;">About Us</h4> 
-                   <a style="font-size:20px;color: #3B5998" href="#">About Us </a><br>
-                   <a style="font-size:20px;color: #3B5998" href="#">Terms & Conditions </a><br>
-                   <a style="font-size:20px;color: #3B5998" href="#">Privacy Policy </a><br>
+                    </div>
+
+                    <div class="col-sm-2">                                
+                        <h4 style="color: white;text-decoration: underline;">Social</h4>
+                        <a style="font-size:20px;color: #3B5998" href="#">FaceBook</a><br>
+                        <a style="font-size:20px;color: #3B5998" href="#">Twitter</a>                                           
+                    </div>
+
+                    <div class="col-sm-2">
+                        <h4 style="color: white;text-decoration: underline;">About Us</h4> 
+                        <a style="font-size:20px;color: #3B5998" href="#">About Us </a><br>
+                        <a style="font-size:20px;color: #3B5998" href="#">Terms & Conditions </a><br>
+                        <a style="font-size:20px;color: #3B5998" href="#">Privacy Policy </a><br>
+                    </div>
+
                 </div>
 
-        </div>
-      
-        
-    </div>
-     
-</footer>
-    
-    
-    
-    
-    
 
-    
-    
-    
-</body>
+            </div>
+
+        </footer>
+
+
+
+
+
+
+
+
+
+    </body>
 </html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="WEB-INF/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="WEB-INF/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+<style>    
+html{
+        position: relative;
+        min-height: 100%;
+   }
+body{
+        margin-bottom: 60px;
+   }    
+.footer{
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background-color: black;
+    }   
+.fa {
+  padding: 3px;
+  font-size: 30px;
+  width: 35px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}  
+</style>
+</head>   
+ <footer class="footer mt-auto py-3">
+     <div style="background-color: black;" class="container-fluid">
+         <div class="row">                            
+                <div class="col-sm-6">
+                    <h4 style="color: white;">Connect With Us</h4> 
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a style="margin-left :28px;" href="#" class="fa fa-facebook"></a>
+                    <p style="color: white;">Copyright © Riyasewana Lanka (Pvt) Ltd.</p>                                       
+                </div>                
+                <div class="col-sm-2">       
+                        <h4 style="color: white;text-decoration: underline;">Help & Support</h4>
+                        <a href="#">Contac Us </a><br>
+                        <a href="#">contribute</a>   
+                </div>             
+                <div class="col-sm-2">                                
+                       <h4 style="color: white;text-decoration: underline;">Social</h4>
+                       <a href="#">FaceBook</a><br>
+                       <a href="#">Twitter</a>                                           
+                </div>            
+                <div class="col-sm-2">
+                   <h4 style="color: white;text-decoration: underline;">About Us</h4> 
+                   <a href="#">About Us </a><br>
+                   <a href="#">Terms & Conditions </a><br>
+                   <a href="#">Privacy Policy </a><br>
+                </div>
+        </div>        
+    </div>   
+</footer>   
+</body>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">  
+  <img style="width: 129px; height: 55px;" src="images/logo1.jpg">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>  
+  <div class="collapse navbar-collapse" id="navbarText">   
+    <ul class="navbar-nav mr-auto">  
+        <li class="nav-item active">
+            <a style="color: white;" class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+            <a style="color: white;"class="nav-link" href="#">Edit My AD</a>
+        </li>    
+    </ul>    
+      <span class="navbar-text">       
+          <button style="width: 290px;"type="button" class="btn btn-outline-primary">Post a Free Ad</button>
+          <button style="margin-left :25px;"style="margin-left :55px;" type="button" class="btn btn-outline-primary">Register</button>
+          <button style="margin-left :25px;"type="button" class="btn btn-outline-primary">Login</button>
+    </span>
+  </div>
+</nav>
+    
+<style>
+h3{text-align:center;}
+h6{text-align:center;}
+div.a {
+  background-color:#eaeae1;
+  width: 800px;
+  border: 7px solid darkblue;
+  padding: 50px;
+  margin: 20px;
+  margin-left:21%
+}
+.button {
+  background-color: darkblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+input[type=text], select {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid darkblue;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+span.red{
+    color:red;
+}
+</style>
+
+<body>
+
+<div class="a">
+    <h3><b>Edit  Wanted Ad</b></h3>
+<h6><i>(Items marked with <span class="red">*</span> are required)</i></h6>
+<p>
+<table style="width:100%">
+<form action="/action_page.php">
+  <tr>
+      <td><p><label for="name">Name <span class="red">*</span></label><br>
+          <input type="text" id="name" name="name" value="" placeholder="Enter your Name" required/><br></p></td>
+  <td><p><label for="pnumber">Phone Number <span class="red">*</span></label><br>
+          <input type="text" id="pnumber" name="pnumber" value="" placeholder="Enter your Phone Number" required/><br></p></td>
+  </tr>
+  <tr>
+  <td><p><label for="type">Vehicle Type <span class="red">*</span></label><br>
+          <select name="Vehicle" selectid="Vehicle">
+    <option value="">Select Type</option>
+    <option value="">Car</option>
+    <option value="">Van</option>
+    <option value="">Motorcycle</option>
+    <option value="">SUV</option>
+    <option value="">Crew Cab</option>
+    <option value="">Wagon</option>
+    <option value="">Pickup</option>
+    <option value="">Bus</option>
+    <option value="">Lorry</option>
+    <option value="">Three Wheel</option>
+    <option value="">Tractor</option>
+    <option value="">Heavy-Duty</option>
+    <option value="">Other</option>
+  </select>
+          <br></p></td>
+  <td><p><label for="title">Title <span class="red">*</span></label><br>
+          <input type="text" id="title" name="title" value="" placeholder="Title" required/><br></p></td>
+  </tr>
+  <tr>
+  <td><p><label for="info">Additional Info <span class="red">*</span></label><br>
+          <input type="text" id="info" name="info" value="" text-align="top" style="height:150px" required/><br></p></td>
+  <td><button class="button"><b>Edit Wanted Ad<a href="IT18184990_Display.html" Edit Wanted Ad </a></b></button></td>
+  </tr>
+  </div>
+</form>
+</p>
+</table>
+</body>
+</html>
+
+
